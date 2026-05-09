@@ -15,8 +15,7 @@
     --ivory-text:   #FDF9F2; 
     --gold-main:    #C8A96B; 
     --gold-deep:    #9A7A38;
-    --gold-glow:    rgba(200, 169, 107, 0.4);
-    --beige-accent: #EFE6D9;
+    --marker-beige: rgba(200, 169, 107, 0.3); 
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,163 +28,198 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ШАПКА */
-  .hero { background: var(--plum-dark); padding: 110px 32px 90px; text-align: center; }
-  .hero-inner { max-width: 800px; margin: 0 auto; }
-  
-  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.1; margin-bottom: 30px; letter-spacing: 0.03em; }
-  .accent-gold { color: var(--gold-main); display: block; margin-bottom: 10px; }
-  .accent-ivory { color: var(--ivory-text); display: block; font-size: 0.8em; }
-  .intro { font-size: 22px; line-height: 1.5; max-width: 650px; margin: 0 auto; color: var(--ivory-text); opacity: 0.95; white-space: pre-line; }
+  .container { max-width: 850px; margin: 0 auto; padding: 0 24px; }
 
-  /* КОНТЕНТ */
-  .content { padding: 60px 20px 0; }
-  .content-inner { max-width: 750px; margin: 0 auto; }
+  /* ШАПКА ТЕПЕРЬ КОМПАКТНАЯ КАРТОЧКА (КАК НИЖНИЕ) */
+  .hero-card { 
+    background: var(--plum-dark); 
+    padding: 50px 30px; 
+    text-align: center; 
+    border-radius: 24px;
+    border: 1px solid var(--gold-main);
+    margin: 40px auto 60px;
+    max-width: 700px;
+    box-shadow: 0 15px 40px rgba(42, 14, 38, 0.15);
+  }
+  .hero-card h1 { font-size: clamp(30px, 5vw, 48px); color: var(--gold-main); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px; }
+  .hero-card .sub-title { color: var(--ivory-text); font-size: 22px; opacity: 0.8; letter-spacing: 0.1em; }
+
+  /* ТЕКСТОВЫЕ БЛОКИ */
+  .intro-section { text-align: center; margin-bottom: 60px; }
+  .intro-text { font-size: 23px; line-height: 1.7; color: var(--plum-text); white-space: pre-line; margin-bottom: 40px; }
+  
+  .manifesto { 
+    font-size: 30px; 
+    color: var(--plum-dark); 
+    font-weight: 600; 
+    border-top: 1px solid var(--gold-main); 
+    border-bottom: 1px solid var(--gold-main);
+    padding: 25px 0;
+    display: inline-block;
+  }
 
   .kicker {
-    font-size: clamp(24px, 4vw, 32px);
-    color: var(--gold-deep);
-    margin-bottom: 40px;
+    font-size: 32px;
+    color: var(--plum-dark);
+    margin: 60px 0 40px;
     text-align: center;
     display: block;
-    line-height: 1.2;
   }
 
-  /* ПЛАШКИ */
-  .step-plate {
-    background: var(--plum-dark);
+  .program-step {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(200, 169, 107, 0.2);
+  }
+  .program-step h3 { color: var(--gold-deep); font-size: 28px; margin-bottom: 15px; }
+  .program-step p { font-size: 21px; opacity: 0.95; white-space: pre-line; }
+
+  /* РЕЗУЛЬТАТЫ — КОМПАКТНАЯ КАРТОЧКА */
+  .results-card { 
+    background: var(--plum-dark); 
+    color: var(--ivory-text);
+    padding: 50px 40px;
+    border-radius: 24px;
     border: 1px solid var(--gold-main);
-    padding: 30px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    margin: 60px auto;
+    max-width: 700px;
+    box-shadow: 0 15px 40px rgba(42, 14, 38, 0.15);
   }
-  .step-plate h3 { color: var(--gold-main); font-size: 26px; margin-bottom: 12px; border-bottom: 1px solid rgba(200, 169, 107, 0.2); padding-bottom: 8px; }
-  .step-plate p { color: var(--ivory-text); font-size: 19px; line-height: 1.5; opacity: 0.9; }
+  .results-title { font-size: 34px; margin-bottom: 40px; color: var(--gold-main); text-align: center; text-transform: uppercase; }
+  
+  .benefit-item { margin-bottom: 35px; text-align: center; }
+  .benefit-item:last-child { margin-bottom: 0; }
+  .benefit-item strong { display: block; font-size: 28px; color: var(--gold-main); margin-bottom: 15px; }
+  .benefit-item p { font-size: 22px; opacity: 0.9; line-height: 1.5; }
 
-  /* РЕЗУЛЬТАТЫ (УМЕНЬШИЛИ ОТСТУПЫ) */
-  .results-section { padding: 40px 0 20px; text-align: center; }
-  .results-title { font-size: 38px; margin-bottom: 35px; color: var(--plum-dark); }
-  .benefit-item { margin-bottom: 30px; max-width: 650px; margin-left: auto; margin-right: auto; }
-  .benefit-item::before { content: '✦'; display: block; color: var(--gold-main); font-size: 18px; margin-bottom: 10px; }
-  .benefit-item strong { display: block; font-size: 26px; color: var(--gold-deep); margin-bottom: 8px; }
-  .benefit-item p { font-size: 20px; color: var(--plum-text); opacity: 0.95; }
-
-  /* ЦИТАТА (ПРИЖАЛИ БЛИЖЕ К ВЕРХУ) */
-  .quote-container {
-    padding: 60px 20px;
-    background: var(--beige-accent);
-    border-top: 1px solid var(--gold-main);
-    margin-top: 20px; 
-    text-align: center;
+  /* ЦИТАТА */
+  .quote-container { padding: 40px 0; text-align: center; }
+  .main-quote { font-size: clamp(28px, 5vw, 42px); color: var(--plum-dark); line-height: 1.3; font-weight: 600; }
+  .mark-beige {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 65%, var(--marker-beige) 35%);
+    display: inline;
+    padding: 0 4px;
   }
-  .main-quote {
-    font-size: clamp(28px, 5vw, 42px);
-    color: var(--plum-dark);
-    line-height: 1.3;
-    max-width: 850px;
-    margin: 0 auto;
-    font-weight: 600;
-  }
-  .main-quote span { color: var(--gold-deep); }
 
-  /* ТАРИФ */
-  .price-section { padding: 90px 24px; text-align: center; background: var(--plum-dark); color: var(--ivory-text); }
+  /* ЦЕНА — МАЛЕНЬКАЯ АККУРАТНАЯ КАРТОЧКА */
+  .price-section { padding: 40px 0 100px; text-align: center; }
   .price-card {
     max-width: 480px;
     margin: 0 auto;
+    background: var(--plum-dark);
     border: 1px solid var(--gold-main);
-    padding: 40px 30px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.02);
+    padding: 50px 30px;
+    border-radius: 24px;
+    color: var(--ivory-text);
   }
-  .price-val { font-size: 48px; color: var(--gold-main); margin: 15px 0; font-weight: 600; }
-  .price-meta { font-size: 20px; opacity: 0.8; margin-bottom: 30px; }
+  .price-title-gold { font-size: 28px; color: var(--gold-main); margin-bottom: 5px; display: block; text-transform: uppercase; }
+  .price-val { font-size: 52px; color: var(--gold-main); margin: 15px 0; font-weight: 600; display: block; }
+  .price-meta { font-size: 20px; opacity: 0.7; margin-bottom: 35px; display: block; }
 
   .cta-button {
     display: inline-block;
     background: var(--gold-main);
     color: var(--plum-dark);
-    padding: 16px 32px;
+    padding: 18px 40px;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 50px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
   }
-  .cta-button:hover { background: #dfc082; transform: translateY(-2px); box-shadow: 0 6px 15px var(--gold-glow); }
+  .cta-button:hover { background: #dfc082; transform: translateY(-2px); }
 
   @media (max-width: 600px) {
-    .price-card { padding: 30px 20px; }
+    .results-card, .hero-card { padding: 40px 20px; }
   }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-inner">
-    <h1>
-      <span class="accent-gold">Разовая сессия</span>
-      <span class="accent-ivory">Формат «Скорой помощи»</span>
-    </h1>
-    <p class="intro">Когда внутри накопилось столько, что кажется — еще один день, и вы просто взорветесь под грузом собственных мыслей.</p>
-  </div>
-</header>
+<div class="container">
+  
+  <header class="hero-card">
+    <h1>Разовая сессия</h1>
+    <div class="sub-title">Формат «Скорой помощи»</div>
+  </header>
 
-<main class="content">
-  <div class="content-inner">
-    <span class="kicker">Что мы успеем за один час:</span>
+  <section class="intro-section">
+    <div class="intro-text">
+Когда внутри накопилось столько, что кажется — еще один день,
+и вы просто взорветесь под грузом собственных мыслей.
+Здесь не нужно быть «железной леди» или успешной во всем.
+    </div>
+    <div class="manifesto">
+      Достаточно одного часа честности, <br>
+      <span style="color: var(--gold-deep);">чтобы вернуть себе ясность.</span>
+    </div>
+  </section>
 
-    <div class="step-plate">
+  <main>
+    <span class="kicker">Что мы успеем сделать (честно):</span>
+
+    <div class="program-step">
       <h3>Снять маску «Я справляюсь»</h3>
-      <p>Здесь можно не быть успешной или железной леди. Можно просто признаться: «Я запуталась, мне страшно». Это безопасное место, чтобы быть собой без фильтров.</p>
+      <p>Безопасное место, чтобы признаться: «Я запуталась».
+      Убираем фильтры и социальные ожидания.
+      Вы получаете право просто быть собой без осуждения.</p>
     </div>
 
-    <div class="step-plate">
-      <h3>Разрезать узел, который не дает спать</h3>
-      <p>Мы разберем конкретный «затык» — конфликт, звонок или ситуацию, которая выбила из колеи. Вы поймете: это случайный эпизод или сценарий, который пора менять.</p>
+    <div class="program-step">
+      <h3>Разрезать эмоциональный узел</h3>
+      <p>Разбираем конкретный «затык»: конфликт, звонок или ситуацию.
+      Понимаем, это <span class="mark-beige">случайный эпизод или глубокий сценарий</span>.
+      Находим выход из тупика, который не давал спать.</p>
     </div>
 
-    <div class="step-plate">
-      <h3>Принять решение, которое «горит»</h3>
-      <p>Уйти или остаться? Сказать или промолчать? Мы уберем эмоциональный шум, чтобы вы увидели решение из своей взрослой, спокойной части.</p>
+    <div class="program-step">
+      <h3>Принять горящее решение</h3>
+      <p>Уйти или остаться? Сказать или промолчать?
+      Отключаем эмоциональный шум и голоса советчиков.
+      Вы видите решение из своей взрослой, спокойной части.</p>
     </div>
 
-    <div class="step-plate">
-      <h3>Вернуть себе самообладание</h3>
-      <p>Когда тревога накрывает и фокус теряется — мы найдем точку опоры прямо сейчас. Чтобы вы вышли с ясной головой и нормальным дыханием.</p>
+    <div class="program-step">
+      <h3>Вернуть точку опоры</h3>
+      <p>Останавливаем панику и хаос в мыслях здесь и сейчас.
+      Возвращаем нормальное дыхание и фокусировку.
+      Вы выходите с ясным планом — какой шаг будет следующим.</p>
     </div>
 
-    <section class="results-section">
-      <h2 class="results-title">Ваш результат:</h2>
+    <section class="results-card">
+      <h2 class="results-title">Твой результат за 60 минут:</h2>
+      
       <div class="benefit-item">
         <strong>Глубокий выдох</strong>
-        <p>Туман в голове рассеется, и вместо хаоса появится один понятный следующий шаг.</p>
+        <p>Туман в голове рассеется. Вместо изматывающего хаоса
+        появится чувство облегчения и контроля над ситуацией.</p>
       </div>
+
       <div class="benefit-item">
         <strong>Новое видение</strong>
-        <p>Возможность перестать вариться в собственном соку и увидеть выход там, где раньше казалась глухая стена.</p>
+        <p>Вы перестаете вариться в собственном соку.
+        Там, где раньше казалась глухая стена, открывается понятный выход.</p>
       </div>
     </section>
-  </div>
-</main>
 
-<section class="quote-container">
-  <p class="main-quote">
-    «Иногда одного часа честного разговора достаточно, <br>
-    <span>чтобы вернуть себе свою жизнь</span>»
-  </p>
-</section>
+    <section class="quote-container">
+      <p class="main-quote">
+        Иногда одного часа честного разговора достаточно, <br>
+        <span class="mark-beige">чтобы вернуть себе свою жизнь.</span>
+      </p>
+    </section>
 
-<section class="price-section">
-  <div class="price-card">
-    <h2 style="font-size: 28px; margin-bottom: 5px;">Индивидуальная встреча</h2>
-    <div class="price-meta">60 минут честности</div>
-    <div class="price-val">100 €</div>
-    <a href="https://t.me/astrolog_prognozi?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D1%83%D1%8E%20%D1%81%D0%B5%D1%81%D1%81%D0%B8%D1%8E.%20%D0%9C%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%BE%D0%B2%D1%83%D1%82..." class="cta-button">Мне нужна эта встреча</a>
-  </div>
-</section>
+    <section class="price-section">
+      <div class="price-card">
+        <span class="price-title-gold">Индивидуальная встреча</span>
+        <span class="price-meta">60 минут глубокой работы</span>
+        <span class="price-val">100 €</span>
+        <a href="https://t.me/astrolog_prognozi" class="cta-button">Мне нужна эта встреча</a>
+      </div>
+    </section>
+  </main>
+</div>
 
 </body>
 </html>
